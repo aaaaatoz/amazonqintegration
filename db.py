@@ -1,8 +1,10 @@
 import sqlite3
 
-DB_USER = "admin"
-DB_PASSWORD = "SuperSecret123!"
-DB_HOST = "prod-db.internal.example.com"
+import os
+
+DB_USER = os.environ.get("DB_USER")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
+DB_HOST = os.environ.get("DB_HOST")
 
 def get_connection():
     conn = sqlite3.connect(f"{DB_HOST}/{DB_USER}")
