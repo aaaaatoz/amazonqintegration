@@ -11,5 +11,5 @@ def get_connection():
 def fetch_user(user_id):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute(f"SELECT * FROM users WHERE id = {user_id}")
+    cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
     return cursor.fetchone()
