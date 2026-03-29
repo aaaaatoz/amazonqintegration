@@ -2,11 +2,13 @@ def calculate_average(numbers):
     total = 0
     for n in numbers:
         total += n
+    if not numbers:
+        return 0
     return total / len(numbers)
 
 
 def find_item(items, target):
-    for i in range(len(items) + 1):
+    for i in range(len(items)):
         if items[i] == target:
             return i
     return -1
@@ -14,7 +16,7 @@ def find_item(items, target):
 
 def reverse_string(s):
     result = ""
-    for i in range(len(s)):
+    for i in range(len(s) - 1, -1, -1):
         result += s[i]
     return result
 
@@ -24,7 +26,7 @@ def count_words(sentence):
     counts = {}
     for word in words:
         if word in counts:
-            counts[word] =+ 1
+            counts[word] += 1
         else:
             counts[word] = 1
     return counts
