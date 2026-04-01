@@ -1,34 +1,24 @@
 def calculate_average(numbers):
-    total = 0
-    for n in numbers:
-        total += n
     if not numbers:
         return 0
-    return total / len(numbers)
+    return sum(numbers) / len(numbers)
 
 
 def find_item(items, target):
-    for i in range(len(items)):
-        if items[i] == target:
+    for i, item in enumerate(items):
+        if item == target:
             return i
     return -1
 
 
 def reverse_string(s):
-    result = ""
-    for i in range(len(s) - 1, -1, -1):
-        result += s[i]
-    return result
+    return s[::-1]
 
 
 def count_words(sentence):
-    words = sentence.split(" ")
     counts = {}
-    for word in words:
-        if word in counts:
-            counts[word] += 1
-        else:
-            counts[word] = 1
+    for word in sentence.split():
+        counts[word] = counts.get(word, 0) + 1
     return counts
 
 
